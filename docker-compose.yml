@@ -1,0 +1,18 @@
+services:
+  openvpn:
+    image: ubuntu-openvpn
+    build: .
+    container_name: ubuntu-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    ports:
+      - "${VPN_PORT}:1194/udp"
+    volumes:
+      - ./ovpn-data:/etc/openvpn
+      - ./sh:/usr/src/sh
+      - ./server.conf:/etc/openvpn/server.conf
+    environment:
+      - TZ=Asia/Tokyo
+    restart: unless-stopped
