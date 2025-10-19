@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 echo "==> preparation.sh: 開始"
-echo "==> v2.1"
 
 CONF_DIR="/etc/openvpn"
 
@@ -43,4 +42,6 @@ if [ ! -d "$CONF_DIR/ca" ]; then
 
   cp pki/ca.crt pki/issued/server.crt pki/private/server.key pki/dh.pem ta.key /
   echo "==> preparation.sh: cp完了"
+  else
+  echo "==> preparation.sh: dir:ca有り"
 fi
