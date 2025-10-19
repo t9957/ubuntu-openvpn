@@ -16,6 +16,8 @@ services:
       - ./server.conf:/etc/openvpn/server.conf
     environment:
       - TZ=Asia/Tokyo
+      - VPN_GLOBAL_IP=${VPN_GLOBAL_IP}
+      - VPN_PORT=${VPN_PORT}
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "test", "-f", "/etc/openvpn/ca/easyrsa/pki/ca.crt" ]
