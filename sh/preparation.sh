@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 echo "==> preparation.sh: 開始"
-echo "==> v1.4"
+echo "==> v2.1"
 
 CONF_DIR="/etc/openvpn"
 
@@ -27,17 +27,16 @@ if [ ! -d "$CONF_DIR/ca" ]; then
   ./easyrsa init-pki
   echo "==> preparation.sh: init-pki完了"
 
-  
   echo "==> CA作成中..."
-  # 対話を止めて自動化
-  ./easyrsa --batch build-ca nopass
-
+  ./easyrsa --batch build-ca nopass > /dev/null 2>&1
+  
   echo "==> サーバ証明書作成中..."
-  ./easyrsa --batch gen-req server nopass
-  ./easyrsa --batch sign-req server server
-
+  ./easyrsa --batch gen-req server nopass > /dev/null 2>&1
+  ./easyrsa --batch sign-req server server > /dev/null 2>&1
+  
   echo "==> DHパラメータ作成中..."
-  ./easyrsa gen-dh
+  ./easyrsa gen-dh > /dev/null 2>&1
+
 
   openvpn --genkey secret ta.key
   echo "==> preparation.sh: genkey完了"

@@ -10,7 +10,8 @@ RUN apt install -y --no-install-recommends easy-rsa
 RUN apt clean
 RUN rm -rf /var/lib/apt/lists/*
 
-# COPY ./preparation.sh /usr/src/sh/preparation.sh
-# RUN chmod +x /usr/src/sh/preparation.sh
-
-CMD bash -c "/usr/src/sh/preparation.sh && exec openvpn --config /etc/openvpn/server.conf"
+CMD bash -c "\
+  /etc/openvpn/sh/preparation.sh && \
+  ln -sf /etc/openvpn/sh/new_client.sh /usr/local/bin/new-client && \
+  chmod +x /etc/openvpn/sh/new_client.sh && \
+  exec openvpn --config /etc/openvpn/server.conf"

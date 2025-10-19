@@ -1,3 +1,5 @@
 .env
 *.ovpn
 ovpn-data/*
+
+dev_myclient.sh
