@@ -2,3 +2,10 @@
 *.ovpn
 
 dev_myclient.sh
+
+clients/
+easyrsa/pki/
+pki/
+*.key
+*.pem
+*.crt

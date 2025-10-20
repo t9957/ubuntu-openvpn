@@ -6,7 +6,7 @@
 
 ## 動かし方、動き方
 
-- .enbを作成し、下記のように記載。
+- .envを作成し、下記のように記載。
   ```
   VPN_GLOBAL_IP=<DockerをホストしているPCのグローバルip>
   VPN_PORT=<DockerをホストしているPCにおいて使うポート>
@@ -16,7 +16,7 @@
 - [preparation.sh](/sh/preparation.sh)がopenvpn起動前に走りvolumeに**easyrsa**ディレクトリが無ければ中身も一緒に作り始める。
 - **ca.crt**が確認できると**status**が**healthy**になる(`docker ps`で見れる)
 - `docker logs ubuntu-openvpn`で**Initialization Sequence Completed**と出ていればopenvpnが起動し待機している状態。
-- `docker exec ubuntu-openvpn new-client <クライアントファイル名>`でクライアントファイル作成、ディレクトリcliantsに出力される。
+- `docker exec ubuntu-openvpn new-client <クライアントファイル名>`でクライアントファイル作成、ディレクトリclientsに出力される。
 - .ovpnファイルをクライアントにインポートして接続。
 
 
