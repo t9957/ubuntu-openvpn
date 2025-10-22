@@ -19,6 +19,9 @@
 - `docker exec ubuntu-openvpn new-client <クライアントファイル名>`でクライアントファイル作成、ディレクトリclientsに出力される。
 - .ovpnファイルをクライアントにインポートして接続。
 
+## 細かいこと
+- MTU
+
 
 ## コマンドなどのメモ
 
