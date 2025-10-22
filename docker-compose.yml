@@ -16,6 +16,7 @@ services:
       - ./server.conf:/etc/openvpn/server.conf
     environment:
       - TZ=Asia/Tokyo
+      - OVPN_TUN_MTU=1454
       - VPN_GLOBAL_IP=${VPN_GLOBAL_IP}
       - VPN_PORT=${VPN_PORT}
     restart: unless-stopped
